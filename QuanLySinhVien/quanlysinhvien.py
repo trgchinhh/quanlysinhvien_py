@@ -6,7 +6,7 @@
 
 import os, sys, time, shutil
 from dangnhap import *
-duongdan = "danhsachsinhvien.txt"
+duongdan = "D:\\ChuongTrinh_Python\\QuanLySinhVien\\danhsachsinhvien.txt"
 
 def banner_chinh():
     os.system("cls")
@@ -267,11 +267,10 @@ def thong_ke_danh_sach(danh_sach_sinh_vien):
     print("\t└─────┴────────────────────────────────┴───────┴────────────┴───────┘")          
 
 # main
-def main(ten_dang_nhap):
+def main():
     while(True):
         os.system("cls")
         banner_chinh()
-        print(f"Xin chao {ten_dang_nhap}")
         print("┌─────")
         print("├ 1 - In theo danh sach")
         print("├ 2 - Them")
@@ -328,14 +327,12 @@ def dangnhap():
         elif lua_chon == "2":
             dangnhaptaikhoan = DangNhapTaiKhoan()   
             xacnhandangnhap = dangnhaptaikhoan.xac_nhan_dang_nhap()
-            ten_dang_nhap = dangnhaptaikhoan.ten_dang_nhap1
             if xacnhandangnhap:
-                main(ten_dang_nhap)
+                main()
         elif lua_chon == "3":
             xoa_tai_khoan = XoaTaiKhoan()
         else :
             banner_tambiet()
             break    
 
-if __name__ == "__main__":
-    dangnhap()
+dangnhap()
