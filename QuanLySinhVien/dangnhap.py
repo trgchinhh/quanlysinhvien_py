@@ -5,10 +5,11 @@ def hash_du_lieu(data):
 
 def tiep_tuc():
     input("\nPress any key to continue ...")
+    return 
 
 class DangKyTaiKhoan:
     def __init__(self):
-        self.path = "taikhoan.txt"
+        self.path = "D:\\ChuongTrinh_Python\\QuanLySinhVien\\taikhoan.txt"
         self.file_rong = self.kiem_tra_file_rong()
         if not self.file_rong:
             print("\t(!) Da co tai khoan ! Vui long dang nhap")
@@ -23,7 +24,7 @@ class DangKyTaiKhoan:
             return file.read().strip() == ""  
 
     def nhap_ten_dang_ky(self):
-        ten_dang_nhap = input("(?) Nhap ten dang nhap: ")
+        ten_dang_nhap = input("(?) Nhap ten dang nhap: ").strip()
         if len(ten_dang_nhap) < 1:
             print("\t(!) Ten dang nhap khong hop le !")
             return 
@@ -32,14 +33,14 @@ class DangKyTaiKhoan:
                 phan = dong.strip().split(";")
                 if hash_du_lieu(phan[0]) == hash_du_lieu(ten_dang_nhap):
                     print("\t(!) Ten dang nhap ton tai !")
-                    return nhap_ten_dang_ky(self) 
+                    return self.nhap_ten_dang_ky() 
         return hash_du_lieu(ten_dang_nhap)
         
     def nhap_mat_khau(self):
-        mat_khau = input("(?) Nhap mat khau: ")
+        mat_khau = input("(?) Nhap mat khau: ").strip()
         if len(mat_khau) < 8:
             print("\t(!) Ma khau phai tu 8 ky tu tro len !")
-            return nhap_mat_khau(self)
+            return self.nhap_mat_khau()
         return hash_du_lieu(mat_khau)
         
     def ghi_vao_file(self):
@@ -50,7 +51,7 @@ class DangKyTaiKhoan:
 
 class DangNhapTaiKhoan:
     def __init__(self):
-        self.path = "taikhoan.txt"
+        self.path = "D:\\ChuongTrinh_Python\\QuanLySinhVien\\taikhoan.txt"
         self.file_rong = self.kiem_tra_file_rong()
         if self.file_rong:
             print("\t(!) Chua co tai khoan ! Vui long dang ky")
@@ -69,7 +70,7 @@ class DangNhapTaiKhoan:
             return file.read().strip() == ""  
 
     def nhap_ten_dang_nhap(self):
-        ten_dang_nhap = input("(?) Nhap ten dang nhap: ")
+        ten_dang_nhap = input("(?) Nhap ten dang nhap: ").strip()
         if len(ten_dang_nhap) < 1:
             print("\t(!) Ten dang nhap khong hop le !")
             return self.nhap_ten_dang_nhap()
@@ -82,7 +83,7 @@ class DangNhapTaiKhoan:
         return True, ten_dang_nhap
 
     def nhap_mat_khau(self):
-        mat_khau = input("(?) Nhap mat khau: ")
+        mat_khau = input("(?) Nhap mat khau: ").strip()
         if len(mat_khau) < 8:
             print("\t(!) Ma khau phai tu 8 ky tu tro len !")
             return self.nhap_mat_khau()
@@ -104,7 +105,7 @@ class DangNhapTaiKhoan:
 
 class XoaTaiKhoan:
     def __init__(self):
-        self.path = "taikhoan.txt"
+        self.path = "D:\\ChuongTrinh_Python\\QuanLySinhVien\\taikhoan.txt"
         self.file_rong = self.kiem_tra_file_rong()
         self.ten_dang_nhap = self.nhap_ten_dang_nhap()
         self.mat_khau = self.nhap_mat_khau()
@@ -115,7 +116,7 @@ class XoaTaiKhoan:
             return file.read().strip() == ""  
 
     def nhap_ten_dang_nhap(self):
-        ten_dang_nhap = input("(?) Nhap ten dang nhap: ")
+        ten_dang_nhap = input("(?) Nhap ten dang nhap: ").strip()
         if len(ten_dang_nhap) < 1:
             print("\t(!) Ten dang nhap khong hop le !")
             return self.nhap_ten_dang_nhap()
@@ -128,7 +129,7 @@ class XoaTaiKhoan:
         return True
 
     def nhap_mat_khau(self):
-        mat_khau = input("(?) Nhap mat khau: ")
+        mat_khau = input("(?) Nhap mat khau: ").strip()
         if len(mat_khau) < 8:
             print("\t(!) Ma khau phai tu 8 ky tu tro len !")
             return self.nhap_mat_khau()
@@ -145,29 +146,4 @@ class XoaTaiKhoan:
             with open(self.path, "w", encoding="utf-8") as file:
                 pass
         print("\t(*) Xoa tai khoan thanh cong !")  
-        tiep_tuc()        
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        tiep_tuc()       
