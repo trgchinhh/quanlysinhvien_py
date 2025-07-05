@@ -1,19 +1,18 @@
 Ho The An;18;DH524001;7.6
 Tran Thien An;18;DH524002;8.2
-Tran Minh Gia Bao;18;DH524003;9.0
+Tran Minh Gia Bao;18;DH524003;8.0
 Le Bao Chau;18;DH524020;5.8
 Nguyen Truong Chinh;18;DH524004;6.8
 Nguyen Manh Cuong;18;DH524005;7.3
 Tran Lam Hai Dang;18;DH524006;5.5
-Vo Thi Thu Ha;18;DH524014;9.1
+Vo Thi Thu Ha;18;DH524014;4.5
 Le Van Hieu;18;DH524011;6.9
 Bui Quang Huy;18;DH524016;6.5
-Hoang Gia Huy;18;DH524019;9.3
+Hoang Gia Huy;18;DH524019;8.5
 Nguyen Bao Khanh;18;DH524007;8.7
 Pham Thi Lan;18;DH524010;7.8
 Dang Khoa Nam;18;DH524017;7.7
 Nguyen Thi Bich Ngoc;18;DH524015;8.0
 Nguyen Thanh Phuc;18;DH524018;9.5
-Doan Minh Tien;18;DH524012;8.4
 Tran Quoc Toan;18;DH524013;7.2
 Nguyen Thanh Tung;19;DH524009;4.9
