@@ -6,6 +6,7 @@
 
 import os, sys, time, shutil
 from dangnhap import *
+from math import floor
 duongdan = "D:\\ChuongTrinh_Python\\QuanLySinhVien\\danhsachsinhvien.txt"
 
 def banner_chinh():
@@ -234,6 +235,37 @@ def sap_xep_danh_sach(danh_sach_sinh_vien):
     else:
         print("\t(*) Ban da chon khong ghi vao file !")    
 
+# ve bieu do cot 
+def ve_bieu_do_cot_cach_deu(danh_sach_sinh_vien):
+    top5 = sorted(danh_sach_sinh_vien, key=lambda sv: sv.diem, reverse=True)[:5]
+    ten_top5 = [sv.ho_ten.split()[-1][:6] for sv in top5]
+    diem_top5 = [sv.diem for sv in top5]
+    sv_con_lai = danh_sach_sinh_vien[5:] if len(danh_sach_sinh_vien) > 5 else []
+    diem_tb_con_lai = sum(sv.diem for sv in sv_con_lai) / len(sv_con_lai) if sv_con_lai else 0
+    ten_top5.append("Khac")
+    diem_top5.append(diem_tb_con_lai)
+    chieu_cao = [floor(d) for d in diem_top5]
+    so_cot = len(chieu_cao)
+    do_rong_cot = 5 
+    print("\n\tBiểu đồ điểm 5 sinh vien cao nhất lớp\n")
+    for y in range(10, -1, -1):
+        if y == 10:
+            print("\t       Y")
+            print("\t       ↑")
+        dong = f"\t{y:>4}.0 ├"
+        for cao in chieu_cao:
+            if cao >= y:
+                dong += f"{'┃'.center(do_rong_cot)}"
+            else:
+                dong += " " * do_rong_cot
+        print(dong)
+    print("\t       └" + "─" * (do_rong_cot * so_cot) + "─> X")
+    dong_ten = "\t       "
+    for ten in ten_top5:
+        dong_ten += ten.center(do_rong_cot)
+    print(dong_ten)
+
+
 # 7 thong ke danh sach sinh vien 
 def thong_ke_danh_sach(danh_sach_sinh_vien):
     hsg = 0; hsk = 0; hstb = 0; hsy = 0; tdcl = 0; diem_max = 0 
@@ -252,12 +284,14 @@ def thong_ke_danh_sach(danh_sach_sinh_vien):
     tl_hsk = (hsk / slsv) * 100
     tl_hstb = (hstb / slsv) * 100
     tl_hsy = (hsy / slsv) * 100
+    print(f"\t(!) So luong sinh ca lop: {slsv}")
     print(f"\t(!) Diem trung binh ca lop: {diem_tbcl:.2f}")
     print(f"\t(!) Ty le sinh vien gioi: {tl_hsg:.1f}%")
     print(f"\t(!) Ty le sinh vien kha: {tl_hsk:.1f}%")
     print(f"\t(!) Ty le sinh vien trung binh: {tl_hstb:.1f}%")
     print(f"\t(!) Ty le sinh vien yeu: {tl_hsy:.1f}%")
-    print(f"\t(+) Danh sach sinh vien cao diem nhat lop - {diem_max} diem\n")
+    ve_bieu_do_cot_cach_deu(danh_sach_sinh_vien)
+    print(f"\n\t(+) Danh sach sinh vien cao diem nhat lop - {diem_max} diem")
     print("\t┌─────┬────────────────────────────────┬───────┬────────────┬───────┐")
     print("\t│ STT │ Ho Ten                         │ Tuoi  │ MSSV       │ Diem  │")
     print("\t├─────┼────────────────────────────────┼───────┼────────────┼───────┤")
